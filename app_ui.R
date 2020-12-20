@@ -1,0 +1,3 @@
+ui <- navbarPage(
+  "Spotify Tracker"
+)
