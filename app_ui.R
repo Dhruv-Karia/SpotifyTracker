@@ -9,10 +9,14 @@ ui <- fluidPage(
 
 page_one <- 
   tabPanel(
-    "temp1"
+    "Spotify Wrapped"
+    # Top 5 genres
+    # Top 5 songs
+    # Minutes listened in last 12 months
   )
 
 page_two <- 
   tabPanel(
-    "temp2"
+    "TempGraph"
+    # scatterD3
   )
