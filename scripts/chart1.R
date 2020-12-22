@@ -1,7 +1,7 @@
 library(spotifyr)
 library(tidyverse)
-library(lubridate)
 library(knitr)
+library(lubridate)
 
 source("secret.R")
 access_token <- get_spotify_access_token()
