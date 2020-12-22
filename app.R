@@ -5,6 +5,8 @@ library(ggplot2)
 library(tidyr)
 library(scatterD3)
 library(stringr)
+library(spotifyr)
+library(devtools)
 
 # Source UI and server
 source("app_ui.R")
