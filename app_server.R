@@ -1,3 +1,26 @@
 # Define server
 server <- function(input, output) {
+  # Create a scatter plot of Spotify data
+  output$scatter <- renderScatterD3({
+    id <- data.frame("percollege" = c("Percent college educated"), 
+                     "perchsd" = c("Percent with high school diploma"),
+                     "percbelowpoverty" = c("Percent in poverty"),
+                     "percadultpoverty" = c("Percent of adults in poverty"),
+                     "percchildbelowpovert" = c("Percent of children in poverty"),
+                     "percelderlypoverty" = c("Percent of elderly in poverty"))
+    varX <- eval(parse(text=paste0("mw$", input$selectX)))
+    varY <- eval(parse(text=paste0("mw$", input$selectY)))
+    plot <- scatterD3(
+      x = varX, y = varY, point_opacity = 0.5, col_var = mw$state,
+      col_lab = "State", xlab = id[[input$selectX]], ylab = id[[input$selectY]],
+      axes_font_size = "160%",
+      tooltip_text = paste0("<strong>County: </strong>",
+                            str_to_title(mw$county), ", ", mw$state, "<br>",
+                            "<strong>", id[[input$selectX]],
+                            ": </strong>", varX, "<br>",
+                            "<strong>", id[[input$selectY]],
+                            ": </strong>", varY)
+    )
+    return(plot)
+  })
 }

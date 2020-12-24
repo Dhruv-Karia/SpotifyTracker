@@ -15,8 +15,27 @@ page_one <-
     # Minutes listened in last 12 months
   )
 
-page_two <- 
-  tabPanel(
-    "TempGraph"
-    # scatterD3
+page_two <- tabPanel(
+  "ScatterD3 Graph",
+  sidebarLayout(
+    sidebarPanel(
+      h2("Customize graph:"),
+      selectInput(
+        inputId = "selectX",
+        "X Axis Variable:",
+        choices = #droplist
+      ),
+      selectInput(
+        inputId = "selectY",
+        "Y Axis Variable:",
+        choices = #droplist,
+        selected = ""
+      )
+    ), 
+    mainPanel(
+      scatterD3Output(
+        outputId = "scatter"
+      )
+    )
   )
+)

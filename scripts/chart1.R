@@ -11,7 +11,7 @@ access_token <- get_spotify_access_token()
 
 recents <- get_my_recently_played(limit = 50) %>% 
   mutate(artist.name = map_chr(track.artists, function(x) x$name[1]),
-         played_at = as_datetime(played_at)) %>% 
+         played_at = as_datetime(played_at)) %>%
   select(track.name, artist.name, track.album.name, played_at)
 
 
@@ -39,6 +39,7 @@ get_analysis <- function(track_id)
 tracks_list <- lapply(all_tracks$track.id, get_analysis)
 track_features <- as.data.frame(do.call(rbind, tracks_list))
 
+<<<<<<< HEAD
 total_tracks <- cbind(all_tracks, track_features)
 
 
@@ -104,3 +105,6 @@ for(i in 1:length(top3_names)){
 
 
 
+=======
+total_tracks <- cbind(all_tracks, track_features)
+>>>>>>> f621bf0787531b0d91269947312111c5f5530447
