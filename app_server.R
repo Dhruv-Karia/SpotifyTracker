@@ -2,23 +2,18 @@
 server <- function(input, output) {
   # Create a scatter plot of Spotify data
   output$scatter <- renderScatterD3({
-    id <- data.frame("percollege" = c("Percent college educated"), 
-                     "perchsd" = c("Percent with high school diploma"),
-                     "percbelowpoverty" = c("Percent in poverty"),
-                     "percadultpoverty" = c("Percent of adults in poverty"),
-                     "percchildbelowpovert" = c("Percent of children in poverty"),
-                     "percelderlypoverty" = c("Percent of elderly in poverty"))
-    varX <- eval(parse(text=paste0("mw$", input$selectX)))
-    varY <- eval(parse(text=paste0("mw$", input$selectY)))
+    source("scripts/chart2.R")
+    varX <- eval(parse(text=paste0("tracks$", tolower(input$selectX))))
+    varY <- eval(parse(text=paste0("tracks$", tolower(input$selectY))))
     plot <- scatterD3(
-      x = varX, y = varY, point_opacity = 0.5, col_var = mw$state,
-      col_lab = "State", xlab = id[[input$selectX]], ylab = id[[input$selectY]],
-      axes_font_size = "160%",
-      tooltip_text = paste0("<strong>County: </strong>",
-                            str_to_title(mw$county), ", ", mw$state, "<br>",
-                            "<strong>", id[[input$selectX]],
+      x = varX, y = varY, point_opacity = 0.5, col_var = tracks$Explicit,
+      xlab = str_to_title(input$selectX), ylab = str_to_title(input$selectY),
+      axes_font_size = "160%", col_lab = "Explicit",
+      tooltip_text = paste0("<strong>Track: </strong>",
+                            str_to_title(tracks$Track), "<br>",
+                            "<strong>", input$selectX,
                             ": </strong>", varX, "<br>",
-                            "<strong>", id[[input$selectY]],
+                            "<strong>", input$selectY,
                             ": </strong>", varY)
     )
     return(plot)

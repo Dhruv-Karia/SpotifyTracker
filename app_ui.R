@@ -1,11 +1,4 @@
-ui <- fluidPage(
-  source("style.css"),
-  navbarPage(
-    "Spotify Tracker",
-    page_one,
-    page_two
-  )
-)
+
 
 page_one <- 
   tabPanel(
@@ -15,6 +8,7 @@ page_one <-
     # Minutes listened in last 12 months
   )
 
+source("scripts/chart2.R")
 page_two <- tabPanel(
   "ScatterD3 Graph",
   sidebarLayout(
@@ -23,13 +17,13 @@ page_two <- tabPanel(
       selectInput(
         inputId = "selectX",
         "X Axis Variable:",
-        choices = #droplist
+        choices = droplist
       ),
       selectInput(
         inputId = "selectY",
         "Y Axis Variable:",
-        choices = #droplist,
-        selected = ""
+        choices = droplist,
+        selected = "Energy"
       )
     ), 
     mainPanel(
@@ -37,5 +31,14 @@ page_two <- tabPanel(
         outputId = "scatter"
       )
     )
+  )
+)
+
+ui <- fluidPage(
+  source("style.css"),
+  navbarPage(
+    "Spotify Tracker",
+    page_one,
+    page_two
   )
 )
