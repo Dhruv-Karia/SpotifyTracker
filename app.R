@@ -7,6 +7,7 @@ library(scatterD3)
 library(stringr)
 library(spotifyr)
 library(devtools)
+library(tidyverse)
 
 # Source UI and server
 source("app_ui.R")

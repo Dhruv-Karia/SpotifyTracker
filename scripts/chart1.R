@@ -2,7 +2,7 @@ library(spotifyr)
 library(tidyverse)
 library(knitr)
 library(lubridate)
-library(purrr)
+
 
 source("scripts/secret.R")
 access_token <- get_spotify_access_token()
@@ -66,7 +66,7 @@ for(i in 1:length(top3_names)){
   
   if("speechiness" == top3_names[i])
   {
-    words[[i]] <- "Rap God"
+    words[[i]] <- "Gangster"
   }
   
   if("acousticness" == top3_names[i])

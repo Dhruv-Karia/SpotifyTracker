@@ -1,12 +1,13 @@
 
-
-page_one <- 
-  tabPanel(
-    "Spotify Wrapped"
-    # Top 5 genres
-    # Top 5 songs
-    # Minutes listened in last 12 months
-  )
+#source("scripts/chart1.R")
+page_one <- tabPanel(
+  "Personality",
+    mainPanel(
+    textOutput(
+        outputId = "topwords"
+      )
+    )
+)
 
 source("scripts/chart2.R")
 page_two <- tabPanel(
