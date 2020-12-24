@@ -2,6 +2,9 @@ library(spotifyr)
 library(tidyverse)
 library(knitr)
 library(lubridate)
+library(purrr)
+
+
 
 source("secret.R")
 access_token <- get_spotify_access_token()
@@ -36,7 +39,65 @@ get_analysis <- function(track_id)
 tracks_list <- lapply(all_tracks$track.id, get_analysis)
 track_features <- as.data.frame(do.call(rbind, tracks_list))
 
-total_tracks <- cbind(all_tracks, track_features) 
+total_tracks <- cbind(all_tracks, track_features)
+
+
+summary <- summarize(total_tracks, danceability = mean(danceability),
+                     energy = mean(energy),
+                     speechiness = mean(speechiness), acousticness = mean(acousticness),
+                     instrumentalness = mean(instrumentalness),
+                     valence = mean(valence)) 
+
+top3 <- abs(t(apply(summary[-1], 1, function(x) head(sort(-x), 3))))
+top3_names <- colnames(top3)
+
+words <- list()
+
+for(i in 1:length(top3_names)){
+  
+  if("danceability" == top3_names[i])
+  {
+    words[[i]] <- "Dougie"
+  }
+  
+  if("energy" == top3_names[i])
+  {
+    words[[i]] <- "Bubbly"
+  }
+  
+  if("speechiness" == top3_names[i])
+  {
+    words[[i]] <- "Rap God"
+  }
+  
+  if("acousticness" == top3_names[i])
+  {
+    words[[i]] <- "Natural"
+  }
+  
+  if("instrumentalness" == top3_names[i])
+  {
+    words[[i]] <- "Word-Girl"
+  }
+  
+  if("acousticness" == top3_names[i])
+  {
+    words[[i]] <- "On Cloud Nine"
+  }
+    
+  if("valence" == top3_names[i])
+  {
+    words[[i]] <- "Jolly"
+  }
+  
+}
+
+
+
+
+
+
+
 
 
 
