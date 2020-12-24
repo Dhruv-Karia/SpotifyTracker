@@ -2,16 +2,10 @@ library(spotifyr)
 library(tidyverse)
 library(knitr)
 library(lubridate)
-
+library(data.table)
 
 source("scripts/secret.R")
 access_token <- get_spotify_access_token()
-
-recents <- get_my_recently_played(limit = 50) %>% 
-  mutate(artist.name = map_chr(track.artists, function(x) x$name[1]),
-         played_at = as_datetime(played_at)) %>%
-  select(track.name, artist.name, track.album.name, played_at)
-
 
 playlists <- get_my_playlists(limit = 50, offset = 0,
                  authorization = get_spotify_authorization_code(),
@@ -28,6 +22,11 @@ get_track <- function(id)
 all_tracks_list <- lapply(playlists$id, get_track)
 all_tracks <- as.data.frame(do.call(rbind, all_tracks_list))
 
+if(nrow(all_tracks) > 500){
+  all_tracks <- all_tracks[sample(nrow(all_tracks), 500), ]
+}
+
+
 get_analysis <- function(track_id)
 {
   analysis <- get_track_audio_features(track_id, 
@@ -35,17 +34,18 @@ get_analysis <- function(track_id)
 }
 
 tracks_list <- lapply(all_tracks$track.id, get_analysis)
-track_features <- as.data.frame(do.call(rbind, tracks_list))
+#track_features <- as.data.frame(do.call(rbind, tracks_list))
+track_features <- rbindlist(tracks_list, fill = TRUE, idcol = T)
 
 
 total_tracks <- cbind(all_tracks, track_features)
 
 
-summary <- summarize(total_tracks, danceability = mean(danceability),
-                     energy = mean(energy),
-                     speechiness = mean(speechiness), acousticness = mean(acousticness),
-                     instrumentalness = mean(instrumentalness),
-                     valence = mean(valence)) 
+summary <- summarize(total_tracks, danceability = mean(danceability, na.rm=TRUE),
+                     energy = mean(energy, na.rm=TRUE),
+                     speechiness = mean(speechiness, na.rm=TRUE), acousticness = mean(acousticness, na.rm=TRUE),
+                     instrumentalness = mean(instrumentalness, na.rm=TRUE),
+                     valence = mean(valence, na.rm=TRUE)) 
 
 top3 <- (summary[,order(-summary[nrow(summary),])])[1:3]
 top3_names <- colnames(top3)
