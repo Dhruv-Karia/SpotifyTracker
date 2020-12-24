@@ -1,0 +1,12 @@
+name: SpotifyTracker
+title: SpotifyTracker
+username:
+account: dhruvkaria
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3427750
+bundleId: 4024726
+url: https://dhruvkaria.shinyapps.io/SpotifyTracker/
+when: 1608785880.29985
+asMultiple: FALSE
+asStatic: FALSE

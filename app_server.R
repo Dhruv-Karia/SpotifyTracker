@@ -18,4 +18,10 @@ server <- function(input, output) {
     )
     return(plot)
   })
+  
+  
+  output$topwords <- renderText({
+    source("scripts/chart1.R")
+    return(paste(words[[1]], words[[2]], words[[3]]))
+  })
 }
