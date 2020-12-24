@@ -92,19 +92,3 @@ for(i in 1:length(top3_names)){
   }
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
-total_tracks <- cbind(all_tracks, track_features)
->>>>>>> f621bf0787531b0d91269947312111c5f5530447
