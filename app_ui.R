@@ -36,7 +36,7 @@ page_two <- tabPanel(
 )
 
 ui <- fluidPage(
-  source("style.css"),
+  includeCSS("style.css"),
   navbarPage(
     "Spotify Tracker",
     page_one,

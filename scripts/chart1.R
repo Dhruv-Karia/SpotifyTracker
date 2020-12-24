@@ -47,7 +47,7 @@ summary <- summarize(total_tracks, danceability = mean(danceability),
                      instrumentalness = mean(instrumentalness),
                      valence = mean(valence)) 
 
-top3 <- abs(t(apply(summary[-1], 1, function(x) head(sort(-x), 3))))
+top3 <- (summary[,order(-summary[nrow(summary),])])[1:3]
 top3_names <- colnames(top3)
 
 words <- list()
