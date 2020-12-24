@@ -4,9 +4,7 @@ library(knitr)
 library(lubridate)
 library(purrr)
 
-
-
-source("secret.R")
+source("scripts/secret.R")
 access_token <- get_spotify_access_token()
 
 recents <- get_my_recently_played(limit = 50) %>% 

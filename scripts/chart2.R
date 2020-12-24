@@ -1,5 +1,5 @@
 # ScatterD3 Plot
-source("chart1.R")
+source("scripts/chart1.R")
 
 tracks <- total_tracks %>%
   select(track.name, track.artists, added_at, track.duration_ms, track.explicit,

@@ -11,9 +11,6 @@ library(devtools)
 # Source UI and server
 source("app_ui.R")
 source("app_server.R")
-source("secret.R")
-source("./scripts/chart1.R")
-source("./scripts/chart2.R")
 
 # Run shiny app
 shinyApp(ui = ui, server = server)
