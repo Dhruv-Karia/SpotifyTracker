@@ -39,7 +39,7 @@ get_analysis <- function(track_id)
 tracks_list <- lapply(all_tracks$track.id, get_analysis)
 track_features <- as.data.frame(do.call(rbind, tracks_list))
 
-<<<<<<< HEAD
+
 total_tracks <- cbind(all_tracks, track_features)
 
 
