@@ -79,14 +79,9 @@ for(i in 1:length(top3_names)){
     words[[i]] <- "Word-Girl"
   }
   
-  if("acousticness" == top3_names[i])
+  if("valence" == top3_names[i])
   {
     words[[i]] <- "On Cloud Nine"
   }
     
-  if("valence" == top3_names[i])
-  {
-    words[[i]] <- "Jolly"
-  }
-  
 }
