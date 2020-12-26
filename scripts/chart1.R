@@ -3,6 +3,7 @@ library(tidyverse)
 library(knitr)
 library(lubridate)
 library(data.table)
+library(forestmangr)
 
 source("scripts/secret.R")
 access_token <- get_spotify_access_token()
@@ -49,39 +50,16 @@ summary <- summarize(total_tracks, danceability = mean(danceability, na.rm=TRUE)
 
 top3 <- (summary[,order(-summary[nrow(summary),])])[1:3]
 top3_names <- colnames(top3)
+top3_rounded <- round_df(top3, 1, rf = "round")
+
+words_df <- read.csv(file = 'scripts/data/words_df.csv')
 
 words <- list()
-
-for(i in 1:length(top3_names)){
+for(i in 1:length(top3_names))
+{
+  totalwords <- words_df %>%
+    select(X, top3_names[i]) %>%
+    filter(X == top3_rounded[1,i])
   
-  if("danceability" == top3_names[i])
-  {
-    words[[i]] <- "Dougie"
-  }
-  
-  if("energy" == top3_names[i])
-  {
-    words[[i]] <- "Bubbly"
-  }
-  
-  if("speechiness" == top3_names[i])
-  {
-    words[[i]] <- "Gangster"
-  }
-  
-  if("acousticness" == top3_names[i])
-  {
-    words[[i]] <- "Natural"
-  }
-  
-  if("instrumentalness" == top3_names[i])
-  {
-    words[[i]] <- "Word-Girl"
-  }
-  
-  if("valence" == top3_names[i])
-  {
-    words[[i]] <- "On Cloud Nine"
-  }
-    
+  words[[i]] <- totalwords[1,2]
 }
