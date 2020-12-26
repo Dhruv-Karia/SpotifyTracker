@@ -8,6 +8,7 @@ library(stringr)
 library(spotifyr)
 library(devtools)
 library(tidyverse)
+library(data.table)
 
 # Source UI and server
 source("app_ui.R")
