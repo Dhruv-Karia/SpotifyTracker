@@ -1,13 +1,14 @@
 
+
 #source("scripts/chart1.R")
 page_one <- tabPanel(
   "Personality",
-    mainPanel(
+  mainPanel(
     textOutput(
-        outputId = "topwords"
+      outputId = "topwords"
       )
     )
-)
+  )
 
 source("scripts/chart2.R")
 page_two <- tabPanel(

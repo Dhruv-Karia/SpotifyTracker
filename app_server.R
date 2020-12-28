@@ -18,7 +18,8 @@ server <- function(input, output) {
     varX <- eval(parse(text=paste0("tracks$", tolower(input$selectX))))
     varY <- eval(parse(text=paste0("tracks$", tolower(input$selectY))))
     plot <- scatterD3(
-      x = varX, y = varY, point_opacity = 0.5, col_var = tracks$Explicit,
+      x = varX, y = varY, point_opacity = 0.5, colors = c("#191414", "1DB954"),
+      col_var = str_to_title(tracks$Explicit),
       xlab = str_to_title(input$selectX), ylab = str_to_title(input$selectY),
       axes_font_size = "160%", col_lab = "Explicit",
       tooltip_text = paste0("Track: ",
@@ -33,7 +34,7 @@ server <- function(input, output) {
   output$topwords <- renderText({
     source("scripts/summary.R")
     source("scripts/chart1.R")
-    return(paste(words[[1]], words[[2]], words[[3]]))
+    return(paste0(words[[1]], ", ", words[[2]], ", ", words[[3]]))
   })
   
   output$get_top_artists <- reactive({
