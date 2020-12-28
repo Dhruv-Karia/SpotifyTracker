@@ -5,7 +5,7 @@ tracks <- total_tracks %>%
   select(track.name, track.artists, added_at, track.duration_ms, track.explicit,
          track.id, track.popularity, track.album.name, track.album.release_date,
          danceability, energy, key, loudness, mode, speechiness, acousticness,
-         instrumentalness, valence, tempo) %>%
+         instrumentalness, valence, tempo, track.uri) %>%
   rename("Track" = track.name,"Artist(s)" = track.artists,
          "Date Added" = added_at, "Track Length" = track.duration_ms,
          "Explicit" = track.explicit, "ID" = track.id,

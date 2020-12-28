@@ -10,7 +10,8 @@ server <- function(input, output) {
       col_var = str_to_title(tracks$Explicit),
       xlab = str_to_title(input$selectX), ylab = str_to_title(input$selectY),
       axes_font_size = "160%", col_lab = "Explicit",
-      tooltip_text = paste0("Track: ",
+      tooltip_text = paste0("<iframe src=https://open.spotify.com/embed/track/6Im9k8u9iIzKMrmV7BWtlF width=300 height=80 frameborder=0 allowtransparency=true allow=encrypted-media></iframe>", "<br>",
+                           "Track: ",
                            str_to_title(tracks$Track), "<br>",
                            input$selectX, ": ", varX, "<br>",
                            input$selectY, ": ", varY)
