@@ -5,8 +5,8 @@ account: dhruvkaria
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3427750
-bundleId: 4024726
+bundleId: 4033863
 url: https://dhruvkaria.shinyapps.io/SpotifyTracker/
-when: 1608785880.29985
+when: 1609119145.34833
 asMultiple: FALSE
 asStatic: FALSE

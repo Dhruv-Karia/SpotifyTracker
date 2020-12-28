@@ -9,6 +9,13 @@ library(spotifyr)
 library(devtools)
 library(tidyverse)
 library(data.table)
+library(httr)
+library(shinyjs)
+library(shinymaterial)
+library(curl)
+
+#authorization
+source("authentication.R")
 
 # Source UI and server
 source("app_ui.R")

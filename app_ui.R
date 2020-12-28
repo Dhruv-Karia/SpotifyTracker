@@ -35,11 +35,26 @@ page_two <- tabPanel(
   )
 )
 
+page_three <- tabPanel(
+  "Top",
+  mainPanel(
+    textOutput(
+      outputId = "get_top_artists"
+    )
+  )
+)
+
 ui <- fluidPage(
+  useShinyjs(),
+  extendShinyjs(text = login_js, functions = c("login")),
+  material_card(id = 'login_button', depth = 5, align = 'center',
+                actionButton('go', 'Log in with Spotify')),
+  
   includeCSS("style.css"),
   navbarPage(
     "Spotify Tracker",
     page_one,
-    page_two
+    page_two,
+    page_three
   )
 )
