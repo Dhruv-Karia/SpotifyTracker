@@ -6,7 +6,7 @@ server <- function(input, output) {
     varX <- eval(parse(text=paste0("tracks$", tolower(input$selectX))))
     varY <- eval(parse(text=paste0("tracks$", tolower(input$selectY))))
     plot <- scatterD3(
-      x = varX, y = varY, point_opacity = 0.5, 
+      x = varX, y = varY, point_opacity = 0.5, colors = c("#191414", "1DB954"),
       col_var = str_to_title(tracks$Explicit),
       xlab = str_to_title(input$selectX), ylab = str_to_title(input$selectY),
       axes_font_size = "160%", col_lab = "Explicit",

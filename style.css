@@ -1,6 +1,6 @@
 h1 {
     color: white;
-    background-color: #235347;
+    background-color: #1DB954;
     font-size: 50px;
     font-weight: bold;
     padding: 3px;
@@ -9,7 +9,7 @@ h1 {
   
   h2{
     color: white;
-    background-color: #235347;
+    background-color: #1DB954;
     font-size: 35px;
     padding: 3px;
     border-radius: 3px;
@@ -21,11 +21,11 @@ h1 {
   }
   
   body{
-    background-color: #DAF1DE;
+    background-color: #535353;
   }
   
   ul{
-    background-color: #8EB69B;
+    background-color: #1DB954;
     font-size: 15px;
   }
   
@@ -39,7 +39,7 @@ h1 {
   }
   
   .span{
-    background-color: #8EB69B ;
+    background-color: #1DB954 ;
   }
   
   .col-sm-8{
