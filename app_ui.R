@@ -5,10 +5,11 @@ page_one <- tabPanel(
   "Personality",
   mainPanel(
     textOutput(
-      outputId = "get_top_artists"),
-    textOutput(
       outputId = "topwords"
-      )
+    ),
+    h2("Your favorite artists and tracks at the moment!"),
+    DT::dataTableOutput("get_top_artists"),
+    DT::dataTableOutput("get_top_tracks")
     )
   )
 
@@ -44,7 +45,6 @@ ui <- fluidPage(
   navbarPage(
     "Spotify Tracker",
     page_one,
-    page_two,
-    page_three
+    page_two
   )
 )

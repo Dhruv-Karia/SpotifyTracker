@@ -13,6 +13,7 @@ library(httr)
 library(shinyjs)
 library(shinymaterial)
 library(curl)
+library(DT)
 
 # Source UI and server
 source("app_ui.R")
