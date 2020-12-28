@@ -14,9 +14,6 @@ library(shinyjs)
 library(shinymaterial)
 library(curl)
 
-#authorization
-source("authentication.R")
-
 # Source UI and server
 source("app_ui.R")
 source("app_server.R")
