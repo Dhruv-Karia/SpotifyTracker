@@ -1,5 +1,6 @@
 # Define server
 server <- function(input, output) {
+  
   # Create a scatter plot of Spotify data
   output$scatter <- renderScatterD3({
     source("scripts/chart2.R")
@@ -19,10 +20,19 @@ server <- function(input, output) {
     return(plot)
   })
   
-  
   output$topwords <- renderText({
-    source("scripts/summary.R")
     source("scripts/chart1.R")
     return(paste0(words[[1]], ", ", words[[2]], ", ", words[[3]]))
   })
+  
+  output$get_top_artists<-renderDataTable({
+    source("scripts/summary.R")
+    return(top1)
+  })
+  
+  output$get_top_tracks<-renderDataTable({
+    source("scripts/summary.R")
+    return(top2)
+  })
+  
 }

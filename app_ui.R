@@ -6,7 +6,10 @@ page_one <- tabPanel(
   mainPanel(
     textOutput(
       outputId = "topwords"
-      )
+    ),
+    h2("Your favorite artists and tracks at the moment!"),
+    DT::dataTableOutput("get_top_artists"),
+    DT::dataTableOutput("get_top_tracks")
     )
   )
 
@@ -35,6 +38,7 @@ page_two <- tabPanel(
     )
   )
 )
+
 
 ui <- fluidPage(
   includeCSS("style.css"),
