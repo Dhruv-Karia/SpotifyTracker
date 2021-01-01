@@ -1,8 +1,3 @@
-@font-face {  
-  src: url(Montserrat-Regular.ttf) format("truetype");
-  font-family: "Sans-Serif";
-}
-
 h1 {
     color: white;
     background-color: #1DB954;
@@ -11,7 +6,6 @@ h1 {
     padding: 3px;
     border-radius: 3px;
     margin: auto;
-    font-family: Montserrat-Regular;
   }
   
   h2{
@@ -24,7 +18,7 @@ h1 {
   
   p{
     font-size: 15px;
-    font-family: Montserrat-Regular, Helvetica, Sans-Serif;
+    font-family: Helvetica, Sans-Serif;
   }
   
   body{
@@ -41,7 +35,7 @@ h1 {
   }
   
   .navbar-default .navbar-nav>li>a {
-    color: #FFFFFF;
+    color: #fff;
     font-size: 18px;
   }
   
@@ -50,7 +44,7 @@ h1 {
   }
   
   .col-sm-8{
-    background-color: #FFFFFF;
+    background-color: #fff;
   }
   
   #adjectives{
