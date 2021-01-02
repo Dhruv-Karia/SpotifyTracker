@@ -1,8 +1,5 @@
 # Load libraries
 library(shiny)
-library(dplyr)
-library(ggplot2)
-library(tidyr)
 library(scatterD3)
 library(stringr)
 library(spotifyr)

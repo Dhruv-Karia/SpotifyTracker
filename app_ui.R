@@ -1,5 +1,5 @@
 
-
+source("scripts/summary.R")
 source("scripts/chart1.R")
 page_one <- tabPanel(
   "Personality",
@@ -8,8 +8,8 @@ page_one <- tabPanel(
            h1(words[[2]]),
            h1(words[[3]])),
   h2("Your favorite artists and tracks at the moment!"),
+  DT::dataTableOutput("get_top_tracks"),
   DT::dataTableOutput("get_top_artists"),
-  DT::dataTableOutput("get_top_tracks")
 )
 
 source("scripts/chart2.R")

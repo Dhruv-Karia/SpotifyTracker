@@ -12,7 +12,7 @@ tracks <- total_tracks %>%
          "Popularity" = track.popularity, "Album" = track.album.name,
          "Release Date" = track.album.release_date,
          "uri" = track.external_urls.spotify) %>%
-  distinct(Track, .keep_all = T)
+  distinct(Track, .keep_all = TRUE)
 
 droplist <- list("Danceability", "Energy", "Key", "Loudness", "Mode",
   "Speechiness", "Acousticness", "Instrumentalness", "Valence", "Tempo")

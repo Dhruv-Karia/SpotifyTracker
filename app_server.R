@@ -17,7 +17,7 @@ server <- function(input, output) {
                             input$selectY, ": ", varY),
       click_callback = "function(id, index) {
                           if(id && typeof(Shiny) != 'undefined') {
-                            Shiny.onInputChange('selected_point', index);
+                            Shiny.setInputValue('selected_point', index);
                           }
                         }"
     )
@@ -38,12 +38,13 @@ server <- function(input, output) {
     return(song)
   })
   
-  output$get_top_artists<-renderDataTable({
+  output$get_top_artists <- renderDataTable({
     source("scripts/summary.R")
+    top1 <- datatable(top1)
     return(top1)
   })
   
-  output$get_top_tracks<-renderDataTable({
+  output$get_top_tracks <- renderDataTable({
     source("scripts/summary.R")
     return(top2)
   })

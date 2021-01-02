@@ -1,11 +1,11 @@
 ,danceability,energy,speechiness,acousticness,instrumentalness,valence
 0.1,Head-Bobber,Sleepy,Local Singer,Modern ,Vocal,Content
-0.2,Slow-Dancer,Relaxed,Up and Coming Singer,Modern Rap,Vocal,Pleased
+0.2,Slow-Dancer,Relaxed,Up and Coming Singer,Modern,Vocal,Pleased
 0.3,Groovy,Chill,Chill Rapper,Modern,Vocal,Cheerful
 0.4,Dancer,Loose,Lyrical Genius,Original ,Vocal,Jovial
 0.5,Cheerleader,Lively,Professional Rapper,Original ,Vocal,Jolly
-0.6,Rookie TikToker,Popular,Eminem,Natural,Peaceful,Glad
-0.7,Advanced TikToker,Party Animal,Song Writer,Very Natural,Calm,Thrilled
+0.6,Dance Moneky,Lively,Eminem,Natural,Peaceful,Glad
+0.7,TikToker,Party Animal,Song Writer,Very Natural,Calm,Thrilled
 0.8,Expert TikToker,Head-Banger,Poet,Highly Acoustic,Jazz,Elated
-0.9,Michael Jackson,Travis Scott,Shakespear,Ed Sheeran,Instrumental,Gleeful
-1,Best Dancer,Most Energy,Popular Rapper,Very Acoustic,Very Instrumental,Sunny
+0.9,Michael Jackson,Travis Scott,Shakespeare,Ed Sheeran,Instrumental,Gleeful
+0.95,Best Dancer,Most Energy,Popular Rapper,Very Acoustic,Very Instrumental,Sunny
